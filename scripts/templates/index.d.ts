@@ -10,6 +10,7 @@ export {
   ModeCallback,
   Emitter,
   Extension,
+  NativeLanguages,
   Plugin,
 } from './types';
 
