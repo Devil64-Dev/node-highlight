@@ -1,0 +1,29 @@
+{
+  "name": "node-highlight",
+  "description": "A fork of highlight.js, lighter and a bit faster",
+  "version": "1.0.2",
+  "author": {
+    "name": "Devil64-Dev",
+    "email": "devil64dev@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Devil64-Dev/node-highlight"
+  },
+  "homepage": "https://github.com/Devil64-Dev/node-highlight/#readme",
+  "bugs": {
+    "email": "devil64dev@gmail.com",
+    "url": "https://github.com/Devil64-Dev/node-highlight/issues"
+  },
+  "license": "BSD-3-Clause",
+  "keywords": ["syntax", "highlight"],
+  "types": "./index.d.ts",
+  "main": "./index.js",
+  "type": "commonjs",
+  "exports": {
+    ".": {
+      "require": "./index.js",
+      "import": "./index.mjs"
+    }
+  }
+}

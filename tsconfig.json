@@ -1,0 +1,21 @@
+{
+  "ts-node": {
+    "compilerOptions": {
+      "target": "ES2016",
+      "module": "CommonJS",
+      "declaration": false
+    }
+  },
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "declaration": true,
+    "moduleResolution": "Node",
+    "strict": true,
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strictNullChecks": false
+  },
+  "include": ["./src"]
+}

@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "ES2016",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "noEmit": true,
+    "baseUrl": ".",
+    "lib": ["ES2016"],
+  },
+  "include": ["./index.d.ts"]
+}
