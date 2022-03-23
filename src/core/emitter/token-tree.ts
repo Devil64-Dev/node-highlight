@@ -43,7 +43,7 @@ export default class TokenTree implements Tree {
     while (this.closeNode());
   };
 
-  toJSON = () => JSON.stringify(this.rootNode, null, 4);
+  toJSON = () => JSON.stringify(this.rootNode, null, 2);
 
   walk = (builder: Renderer) => TokenTree._walk(builder, this.rootNode);
 
