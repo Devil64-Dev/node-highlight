@@ -212,7 +212,7 @@ export interface Options {
   classPrefix: string;
   languages?: string[];
   __emitter: EmitterConstructor;
-  ignoreUnescapedHTML?: boolean;
+  escapeHTML?: boolean;
   throwUnescapedHTML?: boolean;
 }
 

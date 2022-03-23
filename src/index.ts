@@ -45,15 +45,16 @@ export default class NodeHighlight {
 
   private _logger: Logger;
 
-  constructor(options?: Options, _logger: Logger = logger) {
-    this._options = options || {
-      ignoreUnescapedHTML: false,
+  constructor(options?: Partial<Options>, _logger: Logger = logger) {
+    this._options = {
+      escapeHTML: true,
       throwUnescapedHTML: false,
       noHighlightRe: /^(no-?highlight)$/i,
       languageDetectRe: /\blang(?:uage)?-([\w-]+)\b/i,
       classPrefix: 'hljs-',
       languages: null,
       __emitter: TokenTreeEmitter,
+      ...options,
     };
     this._languages = Object.create(null);
     this._aliases = Object.create(null);
@@ -468,7 +469,7 @@ export default class NodeHighlight {
       if (err.message && err.message.includes('Illegal')) {
         return {
           language: languageName,
-          value: escapeHTML(code),
+          value: this._options.escapeHTML ? escapeHTML(code) : code,
           illegal: true,
           relevance: 0,
           _illegalBy: {
@@ -484,7 +485,7 @@ export default class NodeHighlight {
       if (this._safeMode) {
         return {
           language: languageName,
-          value: escapeHTML(code),
+          value: this._options.escapeHTML ? escapeHTML(code) : code,
           illegal: false,
           relevance: 0,
           errorRaised: err,
@@ -505,7 +506,7 @@ export default class NodeHighlight {
    */
   private justTextHighlightResult = (code: string): Result => {
     const result: Result = {
-      value: escapeHTML(code),
+      value: this._options.escapeHTML ? escapeHTML(code) : code,
       illegal: false,
       relevance: 0,
       _top: PLAINTEXT_LANGUAGE,

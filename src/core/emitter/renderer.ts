@@ -1,4 +1,9 @@
-import { Node, Renderer, Tree } from '../../types';
+import {
+  Node,
+  Options,
+  Renderer,
+  Tree,
+} from '../../types';
 import { escapeHTML } from '../../utils';
 
 const SPAN_CLOSE = '</span>';
@@ -22,9 +27,12 @@ export default class HTMLRenderer implements Renderer {
 
   classPrefix: string;
 
-  constructor(tree: Tree, options: { classPrefix: string }) {
+  private _options: Options;
+
+  constructor(tree: Tree, options: Options) {
     this.buffer = '';
     this.classPrefix = options.classPrefix;
+    this._options = options;
     tree.walk(this);
   }
 
@@ -34,7 +42,7 @@ export default class HTMLRenderer implements Renderer {
    * @param text
    */
   addText = (text: string) => {
-    this.buffer += escapeHTML(text);
+    this.buffer += this._options.escapeHTML ? escapeHTML(text) : text;
   };
 
   /**
