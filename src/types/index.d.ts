@@ -277,7 +277,7 @@ type Languages = 'javascript' | 'css' | 'python' |
 export type NativeLanguages = Languages | (string & Record<never, never>);
 
 export declare class NodeHighlight {
-  constructor(options?: Options, logger?: Logger);
+  constructor(options?: Partial<Options>, logger?: Logger);
 
   get safeMode(): boolean;
 
