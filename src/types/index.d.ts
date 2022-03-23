@@ -151,7 +151,9 @@ export interface Emitter {
   closeAllNodes(): void
   openNode(kind: string): void
   closeNode(): void
+  toJSON(): string;
   addSubLanguage(emitter: Emitter, subLanguageName: string): void
+  rootNode?: DataNode;
 }
 
 // -------------------------------------------------------------------------------------
@@ -209,6 +211,7 @@ interface EmitterConstructor {
 export interface Options {
   noHighlightRe: RegExp;
   languageDetectRe: RegExp;
+  json: boolean;
   classPrefix: string;
   languages?: string[];
   __emitter: EmitterConstructor;
@@ -237,6 +240,7 @@ export interface Result {
   _illegalBy? : illegalData;
   _emitter : Emitter;
   _top? : Language | CompiledMode;
+  _status: boolean;
 }
 
 export type BHContext = {

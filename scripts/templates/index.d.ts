@@ -5,6 +5,11 @@ declare const highlighter: NodeHighlight;
 export {
   NodeHighlight,
   Language,
+  DataNode,
+  Node,
+  TreeNode,
+  Logger,
+  Options,
   LanguageDFn,
   Mode,
   ModeCallback,

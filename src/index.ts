@@ -48,10 +48,11 @@ export default class NodeHighlight {
   constructor(options?: Partial<Options>, _logger: Logger = logger) {
     this._options = {
       escapeHTML: true,
+      json: false,
       throwUnescapedHTML: false,
       noHighlightRe: /^(no-?highlight)$/i,
       languageDetectRe: /\blang(?:uage)?-([\w-]+)\b/i,
-      classPrefix: 'hljs-',
+      classPrefix: 'nhgl-',
       languages: null,
       __emitter: TokenTreeEmitter,
       ...options,
@@ -455,7 +456,7 @@ export default class NodeHighlight {
       processLexeme(code.substring(index));
       emitter.closeAllNodes();
       emitter.finalize();
-      result = emitter.toHTML();
+      result = this._options.json ? emitter.toJSON() : emitter.toHTML();
 
       return {
         language: languageName,
@@ -464,6 +465,7 @@ export default class NodeHighlight {
         illegal: false,
         _emitter: emitter,
         _top: top,
+        _status: true,
       };
     } catch (err: any) {
       if (err.message && err.message.includes('Illegal')) {
@@ -480,6 +482,7 @@ export default class NodeHighlight {
             resultSoFar: result,
           },
           _emitter: emitter,
+          _status: false,
         };
       }
       if (this._safeMode) {
@@ -491,6 +494,7 @@ export default class NodeHighlight {
           errorRaised: err,
           _emitter: emitter,
           _top: top,
+          _status: false,
         };
       }
       throw err;
@@ -511,6 +515,7 @@ export default class NodeHighlight {
       relevance: 0,
       _top: PLAINTEXT_LANGUAGE,
       _emitter: new this._options.__emitter(this._options),
+      _status: true,
     };
     result._emitter.addText(code);
 
