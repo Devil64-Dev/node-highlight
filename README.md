@@ -51,3 +51,9 @@ The supported languages for now are:
 - python
 
 Register custom languages isn't available for now. But I'm working on it.
+
+## Styles
+
+You can use styles from [highlight.js](https://github.com/highlightjs/highlight.js),
+or create your owns. You can see the source of the target language definition to
+get help developing your own styles.
