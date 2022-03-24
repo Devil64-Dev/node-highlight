@@ -30,7 +30,8 @@ main class called `NodeHighlight` and create a new instance.
   const nhl = new NodeHighlight({ classPrefix: 'custom-' });
 ```
 
-**!NOTE**: The result is just a HTML string if you are using vanilla javascript you can inner to an element. Otherwise if you are using a framework like react you can use a parser.
+**!NOTE**: The result is just a HTML string if you are using vanilla javascript you can inner to an element. Otherwise if you are using a framework like React you can use a parser.
+For get help writing a new parser see [node-highlight-react](https://github.com/Devil64-Dev/node-highlight-react.git) parser.
 
 ## Core languages
 
