@@ -16,7 +16,7 @@
     "url": "https://github.com/Devil64-Dev/node-highlight/issues"
   },
   "license": "BSD-3-Clause",
-  "keywords": ["syntax", "highlight"],
+  "keywords": ["syntax", "highlight", "node-highlight"],
   "types": "./index.d.ts",
   "main": "./index.js",
   "type": "commonjs",
