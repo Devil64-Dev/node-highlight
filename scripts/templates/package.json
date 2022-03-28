@@ -1,7 +1,7 @@
 {
   "name": "node-highlight",
   "description": "A fork of highlight.js, lighter and a bit faster",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "author": {
     "name": "Devil64-Dev",
     "email": "devil64dev@gmail.com"
