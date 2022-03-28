@@ -83,6 +83,7 @@ export const TAGS = [
   'object',
   'ol',
   'p',
+  'pre',
   'q',
   'quote',
   'samp',
