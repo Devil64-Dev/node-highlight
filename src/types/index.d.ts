@@ -277,7 +277,7 @@ export interface Logger {
 
 type Languages = 'javascript' | 'css' | 'python' |
   'typescript' | 'perl' | 'json' | 'xml' | 'html' |
-  'svg' | 'xhtml' | 'atom' | 'xsl' | 'plist' | 'rss';
+  'svg' | 'xhtml' | 'atom' | 'xsl' | 'plist' | 'rss' | 'scss';
 export type NativeLanguages = Languages | (string & Record<never, never>);
 
 export declare class NodeHighlight {

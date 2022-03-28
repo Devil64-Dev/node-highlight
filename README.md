@@ -37,19 +37,21 @@ For get help writing a new parser see [node-highlight-react](https://github.com/
 
 The supported languages for now are:
 
+- css
+
 - javascript
 
-- typescript
-
 - json
-
-- xml | html | svg | xhtml | atom | plist | xsl | rss
-
-- css
 
 - perl
 
 - python
+
+- scss
+
+- typescript
+
+- xml | html | svg | xhtml | atom | plist | xsl | rss
 
 Register custom languages isn't available for now. But I'm working on it.
 
