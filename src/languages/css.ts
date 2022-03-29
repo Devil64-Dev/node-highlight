@@ -5,6 +5,7 @@ import {
   ATTRIBUTES,
   CSS_MODES,
   MEDIA_FEATURES,
+  PROPERTY_SPECIAL_VALUE,
   PSEUDO_CLASSES,
   PSEUDO_ELEMENTS,
   TAGS,
@@ -61,6 +62,7 @@ const cssLanguage: LanguageDFn = () => {
             }],
           },
           CSS_MODES.FUNCTION_DISPATCH,
+          PROPERTY_SPECIAL_VALUE,
         ],
       },
       {

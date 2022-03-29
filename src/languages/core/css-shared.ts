@@ -1,6 +1,21 @@
 import { APOS_STRING_MODE, NUMBER_RE, QUOTE_STRING_MODE } from '../../core/modes';
+import { Mode } from '../../types';
 
-export const CSS_MODES = {
+const EXTEND_ATTR_SELCTOR: Mode = {
+  scope: 'attr-name',
+  begin: /[\w-]+/,
+  end: /=|~|\||\^|\$|\*|\]/,
+  excludeEnd: true,
+};
+
+export const PROPERTY_SPECIAL_VALUE: Mode = {
+  scope: 'special-value',
+  begin: /[\w_-]+/,
+  end: /[^\w]/,
+  excludeEnd: true,
+};
+
+export const CSS_MODES: Record<string, Mode> = {
   IMPORTANT: { scope: 'meta', begin: '!important' },
   HEX_COLOR: { scope: 'number', begin: /#(([0-9a-fA-F]{3,4})|(([0-9a-fA-F]{2}){3,4}))\b/ },
   FUNCTION_DISPATCH: { className: 'built_in', begin: /[\w-]+(?=\()/ },
@@ -9,7 +24,11 @@ export const CSS_MODES = {
     begin: /\[/,
     end: /\]/,
     illegal: '$',
-    contains: [APOS_STRING_MODE, QUOTE_STRING_MODE],
+    contains: [
+      APOS_STRING_MODE,
+      QUOTE_STRING_MODE,
+      EXTEND_ATTR_SELCTOR,
+    ],
   },
   NUMBER: {
     scope: 'number',

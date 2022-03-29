@@ -11,6 +11,7 @@ import {
   MEDIA_FEATURES,
   PSEUDO_CLASSES,
   PSEUDO_ELEMENTS,
+  PROPERTY_SPECIAL_VALUE,
   TAGS,
 } from './core/css-shared';
 
@@ -54,6 +55,8 @@ const scssLanguage: LanguageDFn = () => {
           QUOTE_STRING_MODE,
           APOS_STRING_MODE,
           CSS_MODES.IMPORTANT,
+          CSS_MODES.FUNCTION_DISPATCH,
+          PROPERTY_SPECIAL_VALUE,
         ],
       },
       {
