@@ -37,7 +37,7 @@ export const SHEBANG = (opts: SHEBANGOptions = {}) => {
 };
 
 // Common modes
-const _BACKSLASH_ESCAPE: Mode = { begin: '\\\\[\\s\\S]', relevance: 0 };
+const _BACKSLASH_ESCAPE: Mode = { scope: 'backslash-scape', begin: '\\\\[\\s\\S]', relevance: 0 };
 export const BACKSLASH_ESCAPE = deepFreeze(_BACKSLASH_ESCAPE);
 
 const _APOS_STRING_MODE: Mode = {
@@ -158,10 +158,29 @@ const _REGEXP_MODE: Mode = {
     contains: [
       BACKSLASH_ESCAPE,
       {
+        scope: 'group',
         begin: /\[/,
+        beginScope: 'open',
         end: /\]/,
+        endScope: 'close',
         relevance: 0,
-        contains: [BACKSLASH_ESCAPE],
+        contains: [
+          BACKSLASH_ESCAPE,
+          {
+            scope: 'negate-char',
+            begin: /\^/,
+            relevance: 1,
+          },
+        ],
+      },
+      {
+        scope: 'operator',
+        begin: /(\*\?|\*)|(\+\?|\+)|\.\?/,
+      },
+      {
+        scope: 'meta',
+        begin: /\$|\^/,
+        relevance: 0,
       },
     ],
   }],
